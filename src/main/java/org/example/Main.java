@@ -36,7 +36,7 @@ public class Main {
         List<Cat> cats = mapper.readValue(response1.getEntity().getContent(), new TypeReference<List<Cat>>(){});
 
         List<Cat> nullUpvotesCat = cats.stream().
-                filter(value -> value.getUpvotes() != null && Integer.valueOf(value.getUpvotes()) > 0).
+                filter(value -> value.getUpvotes() != null && value.getUpvotes() > 0).
                 collect(Collectors.toList());
 
         for (Cat kitty : nullUpvotesCat) {
